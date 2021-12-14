@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3001;
 
 app.get('/test', (request, response) => {
 
-  response.send('test request received')
+  response.send('your test was received')
 
 })
 
@@ -21,7 +21,7 @@ mongoose.connect(process.env.DB_URL);
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-  console.log('Mongoose is connected')
+  console.log('The Mongoose is loose!')
 });
 
 app.get('/books', handleGetBooks);
@@ -38,10 +38,10 @@ async function handleGetBooks(req, res) {
     if (booksFromDB.length > 0) {
       res.status(200).send(booksFromDB);
     } else {
-      res.status(404).send('no books found');
+      res.status(404).send('No books for you!');
     }
   } catch (e) {
-    res.status(500).send('Server Error');
+    res.status(500).send('The Server is not stoked!');
   }
 }
 
