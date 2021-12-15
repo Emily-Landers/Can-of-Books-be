@@ -27,6 +27,8 @@ db.once('open', function() {
 });
 
 app.get('/books', handleGetBooks);
+app.post('/books', handlePostBooks);
+app.delete('/books/:id', handleDeleteBooks);
 
 
 async function handleGetBooks(req, res) {
@@ -44,6 +46,26 @@ async function handleGetBooks(req, res) {
     }
   } catch (e) {
     res.status(500).send('The Server is not stoked!');
+  }
+}
+
+
+async function handlePostBooks(req, res) {
+  try {
+    const bookWeMade = await Book.create(req.body)
+    res.status(201).send(bookWeMade);
+  } catch (e) {
+    res.status(500).send('Server Error');
+  }
+}
+
+async function handleDeleteBooks(req, res) {
+  const { id } = req.params
+  try {
+    await Book.findByIdAndDelete(id);
+    res.status(204).send('success')
+  } catch (e) {
+    res.status(500).send('Server Error');
   }
 }
 
