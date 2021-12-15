@@ -1,6 +1,7 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 const Book = require('./bookModel.js');
-require('dotenv').config();
+
 
 // seeded book titles including title, description, and author
 async function seed() {
@@ -32,4 +33,4 @@ async function seed() {
   mongoose.disconnect();
 }
 
-seed()
+seed();

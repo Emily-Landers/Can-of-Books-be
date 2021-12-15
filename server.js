@@ -5,10 +5,12 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const Book = require('./bookModel');
+
 const app = express();
 app.use(cors());
 
 const PORT = process.env.PORT || 3001;
+mongoose.connect(process.env.DB_URL);
 
 app.get('/test', (request, response) => {
 
@@ -16,7 +18,7 @@ app.get('/test', (request, response) => {
 
 })
 
-mongoose.connect(process.env.DB_URL);
+
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -30,7 +32,7 @@ app.get('/books', handleGetBooks);
 async function handleGetBooks(req, res) {
   let clientEmail = {}
   if (req.query.email) {
-    clientEmail = { email: req.query.email }
+  clientEmail = { email: req.query.email }
   }
 
   try {
