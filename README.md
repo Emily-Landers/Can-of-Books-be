@@ -75,3 +75,14 @@ Start time: 3:00PM
 Finish time: 9:20PM
 
 Actual time needed to complete: 6 Hours 20 Minutes w/breaks
+
+**Lab 13 - 12.15.21**
+Name of feature: Lab 12
+
+Estimate of time needed to complete: 6 hours
+
+Start time: 3:00PM
+
+Finish time: 10:14PM
+
+Actual time needed to complete: 6 Hours 14 Minutes w/breaks
