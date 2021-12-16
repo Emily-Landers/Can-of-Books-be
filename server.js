@@ -5,8 +5,8 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const Book = require('./bookModel');
-
 const app = express();
+
 app.use(cors());
 
 const PORT = process.env.PORT || 3001;
@@ -15,10 +15,7 @@ mongoose.connect(process.env.DB_URL);
 app.get('/test', (request, response) => {
 
   response.send('your test was received')
-
 })
-
-
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -29,7 +26,6 @@ db.once('open', function() {
 app.get('/books', handleGetBooks);
 app.post('/books', handlePostBooks);
 app.delete('/books/:id', handleDeleteBooks);
-
 
 async function handleGetBooks(req, res) {
   let clientEmail = {}
@@ -48,7 +44,6 @@ async function handleGetBooks(req, res) {
     res.status(500).send('The Server is not stoked!');
   }
 }
-
 
 async function handlePostBooks(req, res) {
   try {
