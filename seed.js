@@ -2,7 +2,6 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const Book = require('./bookModel.js');
 
-
 // seeded book titles including title, description, and author
 async function seed() {
   mongoose.connect(process.env.DB_URL);
