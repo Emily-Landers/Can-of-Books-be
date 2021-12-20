@@ -6,7 +6,7 @@ async function clear() {
   mongoose.connect(process.env.DB_URL);
   try {
     await Book.deleteMany({});
-    console.log('Yeeted That Book!');
+    console.log('Yeeted The Books!');
   } catch (err) {
     console.error(err)
   } finally {
